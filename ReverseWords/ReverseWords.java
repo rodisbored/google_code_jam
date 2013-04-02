@@ -1,5 +1,3 @@
-import java.io.*;
-
 /**
  * Author: Roderick Buenviaje
  * Date: April 1, 2013
@@ -20,12 +18,15 @@ import java.io.*;
  * 
  * Output
  * For each test case, output one line containing "Case #x: " followed by the list of words in reverse order.
+ * 
+ * https://code.google.com/codejam/contest/351101/dashboard#s=p1
  */
+
+import java.io.*;
 
 
 public class ReverseWords
 {
-
     /**
      * @param args - Input file
      */

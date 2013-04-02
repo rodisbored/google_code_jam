@@ -1,23 +1,30 @@
 /**
  * Author: Roderick Buenviaje
  * Date: April 1, 2013
- * Problem: Reverse Words
+ * Problem: T9 Spelling
  */
 
 /**
  * This is the code that I wrote to practice for the Google Code Jam
  * 
  * Problem
- * Given a list of space separated words, reverse the order of the words. Each line of text contains L letters and W words. 
- * A line will only consist of letters and space characters. There will be exactly one space character between each pair of consecutive words.
+ * The Latin alphabet contains 26 characters and telephones only have ten digits on the keypad. 
+ * We would like to make it easier to write a message to your friend using a sequence of keypresses to indicate 
+ * the desired characters. The letters are mapped onto the digits as shown below. To insert the character B for 
+ * instance, the program would press 22. In order to insert two characters in sequence from the same key, 
+ * the user must pause before pressing the key a second time. The space character ' ' should be printed to indicate 
+ * a pause. For example, 2 2 indicates AA whereas 22 indicates B.
  * 
  * Input
- * The first line of input gives the number of cases, N.
- * N test cases follow. For each test case there will a line of letters and space characters indicating a list of space separated words. 
- * Spaces will not appear at the start or end of a line.
+ * The first line of input gives the number of cases, N. N test cases follow. Each case is a line of text formatted as
+ * 
+ * Each message will consist of only lowercase characters a-z and space characters ' '. Pressing zero emits a space.
+ * 
  * 
  * Output
- * For each test case, output one line containing "Case #x: " followed by the list of words in reverse order.
+ * For each test case, output one line containing "Case #x: " followed by the message translated into the sequence of keypresses.
+ *
+ * https://code.google.com/codejam/contest/351101/dashboard#s=p2
  */
 
 import java.io.*;
