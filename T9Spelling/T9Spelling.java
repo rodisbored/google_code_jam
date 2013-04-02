@@ -31,16 +31,6 @@ import java.io.*;
 
 public class T9Spelling
 {
-    private static String num1 = null;
-    private static String num2 = "abc";
-    private static String num3 = "def";
-    private static String num4 = "ghi";
-    private static String num5 = "jkl";
-    private static String num6 = "mno";
-    private static String num7 = "pqrs";
-    private static String num8 = "tuv";
-    private static String num9 = "wxyz";
-    
     private static String[] numbers = {" ", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     /**
      * @param args - Input file
@@ -110,7 +100,6 @@ public class T9Spelling
                 convertString = reader.readLine();
                 iNumChar = convertString.length();
                 
-
                 if (iNumChar > 1000)
                 {
                     System.out.println("Error: Test case has more than 1000 characters. Skipping.");
@@ -126,14 +115,11 @@ public class T9Spelling
                     int iNumIndex = 0;
                     int iLetterIndex = 0;
                     
-                    boolean bMatch = false;
-                    
-                    while (!bMatch && iNumIndex < 11)
+                    while (iNumIndex < 11)
                     {
                         iLetterIndex = numbers[iNumIndex].indexOf(convertString.charAt(j));
                         if (iLetterIndex != -1)
                         {
-                            bMatch = true;
                             break;
                         }
                         iNumIndex++;
