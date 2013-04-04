@@ -52,10 +52,10 @@ def recurseFunction(iCredits, aPrices, aPart):
 
 if __name__ == '__main__':
     
-    input = 'A-large'
+    inName = 'A-large'
     
-    inputFile = open(input + ".in", 'r')
-    outputFile = open(input + ".out", 'w')
+    inputFile = open(inName + ".in", 'r')
+    outputFile = open(inName + ".out", 'w')
     
     iInputN = int(inputFile.readline())
     for x in range(0, iInputN):
@@ -79,14 +79,18 @@ if __name__ == '__main__':
         
         recurseFunction(iCredits, aValidPrices, list())
         
-#        print FinalAnswer.array;
+        indexes = []
         for y in range(0, len(Basket.array)):
             iCurIndex = aInputOrig.index(Basket.array[y],)
             
-            sCaseAnswer += " %d" % (iCurIndex + 1)
+            indexes += [iCurIndex + 1]
             # Clear value from list to make sure duplicate values choose different indexes
             aInputOrig[iCurIndex] = 0
             
+        # Sort indexes by lowest first
+        indexes.sort(cmp=None, key=None, reverse=False)
+        for s in indexes:
+            sCaseAnswer += " %d" % s
         outputFile.write(sCaseAnswer + "\n")
         outputFile.flush()
     
