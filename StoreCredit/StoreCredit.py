@@ -29,6 +29,9 @@
 
 import sys
 
+'''
+# This code is currently not needed since I misread the problem, but will be saved for future use.
+
 class Basket:
     array = []
 
@@ -48,11 +51,23 @@ def recurseFunction(iCredits, aPrices, aPart):
         n = aPrices[i]
         rem = aPrices[i+1:]
         recurseFunction(iCredits, rem, aPart + [n])
+'''
 
+def chooseItems(iCredits, aPrices):
+    # We do not check to see if one item equals the credits since we are told we will be getting
+    # two items
+    for i in aPrices:
+        curItem = i
+#        aPrices.remove(curItem)
+        for j in reversed(aPrices):
+            if curItem + j == iCredits:
+                return [curItem] + [j]
+        
 
 if __name__ == '__main__':
     
-    inName = 'A-large'
+    inName = 'A-small'
+#    inName = 'A-large'
     
     inputFile = open(inName + ".in", 'r')
     outputFile = open(inName + ".out", 'w')
@@ -60,7 +75,7 @@ if __name__ == '__main__':
     iInputN = int(inputFile.readline())
     for x in range(0, iInputN):
         # Clear array
-        Basket.array = []
+#        Basket.array = []
         iCredits = int(inputFile.readline())
         
         # This is not needed in python
@@ -72,25 +87,25 @@ if __name__ == '__main__':
         # Grabs all the integers that are less than the total credit available
         # Sort valid prices to take fewest number of items
         aValidPrices = filter(lambda y:y<iCredits, aInputOrig)
-
-        sCaseAnswer = "Case #%d:" % (x + 1)
-        
         aValidPrices.sort(cmp=None, key=None, reverse=True)
         
-        recurseFunction(iCredits, aValidPrices, list())
+        sCaseAnswer = "Case #%d:" % (x + 1)
+    
+        chosenItems = chooseItems(iCredits, aValidPrices)
         
-        indexes = []
-        for y in range(0, len(Basket.array)):
-            iCurIndex = aInputOrig.index(Basket.array[y],)
-            
-            indexes += [iCurIndex + 1]
+        # Ensures we do not have an empty set before referencing the array
+        if chosenItems:
+            iIndex1 = aInputOrig.index(chosenItems[0])
             # Clear value from list to make sure duplicate values choose different indexes
-            aInputOrig[iCurIndex] = 0
+            aInputOrig[iIndex1] = 0
             
-        # Sort indexes by lowest first
-        indexes.sort(cmp=None, key=None, reverse=False)
-        for s in indexes:
-            sCaseAnswer += " %d" % s
+            iIndex2 = aInputOrig.index(chosenItems[1])
+            
+            if iIndex1 < iIndex2:
+                sCaseAnswer += " %d %d" % (iIndex1+1, iIndex2+1)
+            else:
+                sCaseAnswer += " %d %d" % (iIndex2+1, iIndex1+1)
+        
         outputFile.write(sCaseAnswer + "\n")
         outputFile.flush()
     
