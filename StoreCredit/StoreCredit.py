@@ -57,11 +57,9 @@ def chooseItems(iCredits, aPrices):
     # We do not check to see if one item equals the credits since we are told we will be getting
     # two items
     for i in aPrices:
-        curItem = i
-#        aPrices.remove(curItem)
         for j in reversed(aPrices):
-            if curItem + j == iCredits:
-                return [curItem] + [j]
+            if i + j == iCredits:
+                return [i] + [j]
         
 
 if __name__ == '__main__':
