@@ -88,10 +88,7 @@ int main(int argc, char *argv[])
 		regex rgx(sCurLine.c_str(), std::regex_constants::extended);
 
 		regex_t p;
-		int rcomp_err, rexec_err;
-		char string[BUFSIZ+1];
-		int i;
-
+		int rcomp_err;
 		regmatch_t pmatch[2];
 
 		rcomp_err = regcomp(&p, sCurLine.c_str(), REG_EXTENDED);
